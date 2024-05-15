@@ -1,50 +1,21 @@
 import java.util.Scanner;
 
 public class conversorBinario {
-    // Hace pausa y espera un ENTER desplegando un texto
-    @SuppressWarnings("resource")
-    public static void waitKey() {
-        Scanner key = new Scanner(System.in);
-        System.out.print("\nPresione ENTER para continuar... ");
-        key.nextLine();
-    }
-
-    // Limpiar pantalla
-    public static void clear() {
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
-    }
-
-    public static String parseBinary(int dec) {
-        String binary = "";
-        int bit = 0;
-        while (dec >= 1) {
-            bit = dec % 2;
-            dec = (int) Math.floor(dec / 2);
-
-            binary = String.valueOf(bit) + binary;
-        }
-        return binary;
-    }
-
-    public static int bitValue(int bit, int pos) {
-        int bitValue = (int) Math.pow(2.0, pos);
-        return bit * bitValue;
-
-    }
-
+    //Convierte un numero binario a numero entero
     public static int parseDec(String bin) {
         int bits = bin.length();
         int dec = 0;
         int acum = 0;
+
         for (int i = 0; i < bits; i++) {
-            dec = Integer.parseInt("" + bin.charAt(i));
+            dec = Integer.parseInt("" + bin.charAt(i)); //Convertir el bit en posicion i a entero
 
             if (dec == 0 || dec == 1) {
                 acum += bitValue(dec, bits - i - 1);
+                //Imprime el valor de cada bit
                 System.out.println(dec + " -> " + bitValue(dec, bits - i - 1));
             } else
-                return 0;
+                return 0;   //Si encuentra un numero distitno a 1-0, se termina la funcion
         }
         return acum;
     }
@@ -134,5 +105,42 @@ public class conversorBinario {
             "");
 
     }
+
+    //Convierte un numero entero a binario (lo regresa en texto)
+    //SE USA EL PROCEDIMIENTO VISTA EN CLASE DE LOGICA 
+    public static String parseBinary(int dec) {
+        String binary = ""; //acumulador
+        int bit = 0;
+        while (dec > 0) {
+            bit = dec % 2;
+            dec = (int) Math.floor(dec / 2);
+
+            binary = String.valueOf(bit) + binary;
+        }
+        return binary;
+    }
+
+    //Calcula el valor de un bit segun su posicion y si es 1 o 0
+    public static int bitValue(int bit, int pos) {
+        int bitValue = (int) Math.pow(2.0, pos);
+        return bit * bitValue;
+
+    }
+
+    
+    // Hace pausa y espera un ENTER desplegando un texto
+    @SuppressWarnings("resource")
+    public static void waitKey() {
+        Scanner key = new Scanner(System.in);
+        System.out.print("\nPresione ENTER para continuar... ");
+        key.nextLine();
+    }
+
+    // Limpiar pantalla
+    public static void clear() {
+        System.out.println("\033[H\033[2J");
+        System.out.flush();
+    }
+
 
 }
