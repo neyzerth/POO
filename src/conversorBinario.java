@@ -38,10 +38,10 @@ public class conversorBinario {
 
                     decimal = parseDec(binary); //funcion de binario->decimal
 
-                    printBinVal(binary);    //imprimir los valores individuales del binario
-                    if (binary.contains("1") && binary.contains("0"))
+                    if (binary.contains("1") && binary.contains("0")) {
+                        printBinVal(binary);    //imprimir los valores individuales del binario
                         System.out.println(binary + " a decimal es: " + decimal);
-                    else
+                    } else
                         System.out.println("Solo debes introducir 0 y 1");
 
                     waitKey();
