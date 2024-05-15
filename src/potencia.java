@@ -19,5 +19,4 @@ public class potencia {
 
         System.out.print(" = " + res);
     }
-    //Andres were here
 }
