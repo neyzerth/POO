@@ -1,5 +1,5 @@
 bin/
 lib/
 vscode/
+src/prueba.java
 .gitignore
-prueba.java
