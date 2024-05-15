@@ -47,8 +47,8 @@ public class ExamenPSeint {
                         clear();
                         System.out.println("Ventas ($)");
                         for(int i=0; i<=11; i++)
-                            System.out.println((i+1)+") $"+sales[0][i]);
-
+                            System.out.println((i+1)+") \n$"+sales[0][i]);
+                
                         System.out.print("Que venta desea modificar?(Solo del 1 al 12)\n ");
                         do
                             pos = Integer.parseInt(input(txtInput));
@@ -141,6 +141,7 @@ public class ExamenPSeint {
         return sale * calcDisc(sale) * 1.1;
     }
 
+    @SuppressWarnings("resource")
     public static String input(String txt) {
         Scanner value = new Scanner(System.in);
 
@@ -150,6 +151,7 @@ public class ExamenPSeint {
         return txtInput;
     }
 
+    @SuppressWarnings("resource")
     public static void waitKey(String txt) {
         Scanner key = new Scanner(System.in);
         System.out.print(txt);
