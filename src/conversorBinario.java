@@ -37,8 +37,9 @@ public class conversorBinario {
                     binary = input.next();
 
                     decimal = parseDec(binary); //funcion de binario->decimal
-
-                    if (binary.contains("1") && binary.contains("0")) {
+                    //la funcion regresa -1 si tiene otro digito que no sea 1,0
+                    
+                    if (decimal != -1) {    
                         printBinVal(binary);    //imprimir los valores individuales del binario
                         System.out.println(binary + " a decimal es: " + decimal);
                     } else
@@ -117,7 +118,7 @@ public class conversorBinario {
             if (bit == 0 || bit == 1) {
                 acum += bitValue(bit, (bits -i -1));//bits -i -1 es para iniciar desde el final hasta la pos 0
             } else
-                return 0;   //Si encuentra un numero distitno a 1-0, se termina la funcion
+                return -1;   //Si encuentra un numero distitno a 1-0, se termina la funcion
         }
         return acum;
     }
