@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class conversorBinario {
+    //Las funciones se encuentran hasta el final:)
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
@@ -23,9 +24,9 @@ public class conversorBinario {
                     System.out.print("Numero a convertir a binario: \n> ");
                     decimal = input.nextInt();
 
-                    binary = parseBinary(decimal);
+                    binary = parseBinary(decimal);  //funcion de decimal->binario
 
-                    printBinVal(binary);
+                    printBinVal(binary);    //imprimir los valores individuales del binario
                     System.out.println(decimal + " a binario es: " + binary);
                     System.out.println("Bits: " + binary.length());
                     waitKey();
@@ -35,9 +36,9 @@ public class conversorBinario {
                     System.out.print("Numero binario a convertir \n> ");
                     binary = input.next();
 
-                    decimal = parseDec(binary);
+                    decimal = parseDec(binary); //funcion de binario->decimal
 
-                    printBinVal(binary);
+                    printBinVal(binary);    //imprimir los valores individuales del binario
                     if (binary.contains("1") && binary.contains("0"))
                         System.out.println(binary + " a decimal es: " + decimal);
                     else
@@ -126,7 +127,7 @@ public class conversorBinario {
     public static void printBinVal(String bin) {
         int bits = bin.length();
         int bit;
-        
+
         System.out.print("\nBinario:\t");
         for (int i = 0; i < bits; i++) {
             bit = (int) bin.charAt(i) - '0';    //Es la forma que vi de pasar char->int
