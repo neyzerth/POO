@@ -4,8 +4,8 @@ public class conversorBinario {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int opt, decimal, bit, bits;
-        String binario;
+        int opt, decimal;
+        String binary;
         boolean flow = true; //el flujo del programa, si termina o no
 
         do {
@@ -16,36 +16,30 @@ public class conversorBinario {
             System.out.println("[3] Salir");
             System.out.print("> ");
             opt = input.nextInt();
-
+            
+            clear();
             switch (opt) {
                 case 1:
                     System.out.print("Numero a convertir a binario: \n> ");
                     decimal = input.nextInt();
 
-                    binario = parseBinary(decimal);
-                    bits = binario.length();
+                    binary = parseBinary(decimal);
 
-                    for (int i = 0; i < bits; i++) {
-                        bit = (int) binario.charAt(i) - '0';    //Es la forma que vi de pasar char->int
-                        System.out.println(bit + " -> " + bitValue(bit, bits - i - 1)); //imprimir el valor de cada bit individual
-                    }
-
-                    System.out.println();
-                    System.out.println(decimal + " a binario es: " + binario);
-                    System.out.println("Bits: " + bits);
+                    printBinVal(binary);
+                    System.out.println(decimal + " a binario es: " + binary);
+                    System.out.println("Bits: " + binary.length());
                     waitKey();
                     break;
 
                 case 2:
                     System.out.print("Numero binario a convertir \n> ");
-                    binario = input.next();
-                    bits = binario.length();
+                    binary = input.next();
 
-                    decimal = parseDec(binario);
+                    decimal = parseDec(binary);
 
-                    System.out.println();
-                    if (binario.contains("1") && binario.contains("0"))
-                        System.out.println(binario + " a decimal es: " + decimal);
+                    printBinVal(binary);
+                    if (binary.contains("1") && binary.contains("0"))
+                        System.out.println(binary + " a decimal es: " + decimal);
                     else
                         System.out.println("Solo debes introducir 0 y 1");
 
@@ -121,8 +115,6 @@ public class conversorBinario {
 
             if (dec == 0 || dec == 1) {
                 acum += bitValue(dec, bits - i - 1);
-                //Imprime el valor de cada bit
-                System.out.println(dec + " -> " + bitValue(dec, bits - i - 1));
             } else
                 return 0;   //Si encuentra un numero distitno a 1-0, se termina la funcion
         }
@@ -130,6 +122,25 @@ public class conversorBinario {
     }
 
     //-- TEXTO --
+    //Imprime los valores binarios en dos filas
+    public static void printBinVal(String bin) {
+        int bits = bin.length();
+        int bit;
+        
+        System.out.print("\nBinario:\t");
+        for (int i = 0; i < bits; i++) {
+            bit = (int) bin.charAt(i) - '0';    //Es la forma que vi de pasar char->int
+            System.out.print(bit + "\t"); //imprimir el bit individual (0-1)
+        }
+
+        System.out.print("\nValor:\t\t");
+        for (int i = 0; i < bits; i++) {
+            bit = (int) bin.charAt(i) - '0';    //Es la forma que vi de pasar char->int
+            System.out.print(bitValue(bit, bits - i - 1)+"\t"); //Imprime el valor en decimal del bit
+        }
+        System.out.println("\n");
+        
+    }
     // Hace pausa y espera un ENTER desplegando un texto
     @SuppressWarnings("resource")
     public static void waitKey() {
