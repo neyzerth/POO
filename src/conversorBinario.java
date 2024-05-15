@@ -1,25 +1,6 @@
 import java.util.Scanner;
 
 public class conversorBinario {
-    //Convierte un numero binario a numero entero
-    public static int parseDec(String bin) {
-        int bits = bin.length();
-        int dec = 0;
-        int acum = 0;
-
-        for (int i = 0; i < bits; i++) {
-            dec = Integer.parseInt("" + bin.charAt(i)); //Convertir el bit en posicion i a entero
-
-            if (dec == 0 || dec == 1) {
-                acum += bitValue(dec, bits - i - 1);
-                //Imprime el valor de cada bit
-                System.out.println(dec + " -> " + bitValue(dec, bits - i - 1));
-            } else
-                return 0;   //Si encuentra un numero distitno a 1-0, se termina la funcion
-        }
-        return acum;
-    }
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int opt, decimal, bit, bits;
@@ -124,10 +105,27 @@ public class conversorBinario {
     public static int bitValue(int bit, int pos) {
         int bitValue = (int) Math.pow(2.0, pos);
         return bit * bitValue;
-
     }
 
-    
+    //Convierte un numero binario a numero entero
+    public static int parseDec(String bin) {
+        int bits = bin.length();
+        int dec = 0;
+        int acum = 0;
+
+        for (int i = 0; i < bits; i++) {
+            dec = Integer.parseInt("" + bin.charAt(i)); //Convertir el bit en posicion i a entero
+
+            if (dec == 0 || dec == 1) {
+                acum += bitValue(dec, bits - i - 1);
+                //Imprime el valor de cada bit
+                System.out.println(dec + " -> " + bitValue(dec, bits - i - 1));
+            } else
+                return 0;   //Si encuentra un numero distitno a 1-0, se termina la funcion
+        }
+        return acum;
+    }
+
     // Hace pausa y espera un ENTER desplegando un texto
     @SuppressWarnings("resource")
     public static void waitKey() {
