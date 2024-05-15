@@ -110,6 +110,7 @@ public class conversorBinario {
             }
 
         } while (flow);
+        input.close();
         clear();
         System.out.println(
             "▒▒▒▒▒▒▒▓\r\n" + //
