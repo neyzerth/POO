@@ -3,13 +3,13 @@ import java.util.Scanner;
 public class conversorBinario {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+
         int opt, decimal, bit, bits;
         String binario;
-        boolean flow = true;
+        boolean flow = true; //el flujo del programa, si termina o no
 
         do {
             clear();
-            binario = "";
             System.out.println("CONVERSOR DE BINARIO\n");
             System.out.println("[1] Decimal a binario");
             System.out.println("[2] Binario a decimal");
@@ -26,8 +26,8 @@ public class conversorBinario {
                     bits = binario.length();
 
                     for (int i = 0; i < bits; i++) {
-                        bit = (int) binario.charAt(i) - '0';
-                        System.out.println(bit + " -> " + bitValue(bit, bits - i - 1));
+                        bit = (int) binario.charAt(i) - '0';    //Es la forma que vi de pasar char->int
+                        System.out.println(bit + " -> " + bitValue(bit, bits - i - 1)); //imprimir el valor de cada bit individual
                     }
 
                     System.out.println();
@@ -65,6 +65,7 @@ public class conversorBinario {
         input.close();
         clear();
         System.out.println(
+
             "▒▒▒▒▒▒▒▓\r\n" + //
             "▒▒▒▒▒▒▒▓▓▓\r\n" + //
             "▒▓▓▓▓▓▓░░░▓\r\n" + //
@@ -86,7 +87,9 @@ public class conversorBinario {
             "");
 
     }
+    //----- F U N C I O N E S ----------
 
+    //-- OPERACIONES --
     //Convierte un numero entero a binario (lo regresa en texto)
     //SE USA EL PROCEDIMIENTO VISTA EN CLASE DE LOGICA 
     public static String parseBinary(int dec) {
@@ -126,6 +129,7 @@ public class conversorBinario {
         return acum;
     }
 
+    //-- TEXTO --
     // Hace pausa y espera un ENTER desplegando un texto
     @SuppressWarnings("resource")
     public static void waitKey() {
@@ -139,6 +143,4 @@ public class conversorBinario {
         System.out.println("\033[H\033[2J");
         System.out.flush();
     }
-
-
 }
