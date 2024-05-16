@@ -5,7 +5,7 @@ public class matriz {
         Random random = new Random();
 
         int columna = 4;
-        int fila = 5;
+        int fila = 10;
 
         int[][] matriz = new int[columna][fila];
 
