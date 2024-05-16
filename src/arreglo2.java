@@ -5,8 +5,7 @@ public class arreglo2 {
         Scanner input = new Scanner(System.in);
 
         double prom = 0;
-        int min = 0;
-        int max = 0;
+        int min, max;
 
         int[] nums = new int[10];
 
@@ -14,23 +13,24 @@ public class arreglo2 {
         for (int i = 0; i < 10; i++) {
             System.out.print((i + 1) + "> ");
             nums[i] = input.nextInt();
+        }
 
-            prom += nums[i];
+        max = nums[0];
+        min = nums[0];
 
-            if (i == 0) {
-                max = nums[0];
-                min = nums[0];
-            } else {
+        // foreach
+        // num <- nums[i]
+        for (int num : nums) {
+            prom += num;
 
-                if (nums[i] > max)
-                    max = nums[i];
+            if (num > max)
+                max = num;
 
-                if (nums[i] < min)
-                    min = nums[i];
-            }
+            if (num < min)
+                min = num;
         }
         input.close();
-        
+
         prom /= 10;
 
         System.out.println("El promedio es: " + prom);
