@@ -94,7 +94,7 @@ public class conversorBinario {
         int bit;
         while (dec > 0) {
             bit = dec % 2;
-            dec = (int) Math.floor(dec / 2);
+            dec = (int) Math.floor(dec / 2);    //Solo toma valor entero
 
             binary = String.valueOf(bit) + binary;
         }
