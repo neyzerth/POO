@@ -16,36 +16,49 @@ public class conversorBinario {
             System.out.println("[2] Binario a decimal");
             System.out.println("[3] Salir");
             System.out.print("> ");
-            opt = input.nextInt();
-            
+            try{
+                opt = input.nextInt();
+            } catch(Exception e) {
+                input.next();
+                opt = 0;
+            }
             clear();
             switch (opt) {
                 case 1:
                     System.out.print("Numero a convertir a binario: \n> ");
-                    decimal = input.nextInt();
+                    try {
+                        decimal = input.nextInt();
+                        binary = parseBinary(decimal);  //funcion de decimal->binario
 
-                    binary = parseBinary(decimal);  //funcion de decimal->binario
+                        printBinVal(binary);    //imprimir los valores individuales del binario
+                        System.out.println(decimal + " a binario es: " + binary);
+                        System.out.println("Bits: " + binary.length());
 
-                    printBinVal(binary);    //imprimir los valores individuales del binario
-                    System.out.println(decimal + " a binario es: " + binary);
-                    System.out.println("Bits: " + binary.length());
+                    } catch(Exception e) {
+                        System.out.println("Solo numeros enteros");
+                        input.next();;
+                    }
                     waitKey();
                     break;
 
                 case 2:
                     System.out.print("Numero binario a convertir \n> ");
-                    binary = input.next();
+                    try {
+                        binary = input.next();
 
-                    decimal = parseDec(binary); //funcion de binario->decimal
-                    //la funcion regresa -1 si tiene otro digito que no sea 1,0
+                        decimal = parseDec(binary); //funcion de binario->decimal
+                        //la funcion regresa -1 si tiene otro digito que no sea 1,0
 
-                    if (decimal != -1) {    
-                        printBinVal(binary);    //imprimir los valores individuales del binario
-                        System.out.println(binary + " a decimal es: " + decimal);
-                        System.out.println("Bits: " + binary.length());
-                    } else
+                        if (decimal != -1) {    
+                            printBinVal(binary);    //imprimir los valores individuales del binario
+                            System.out.println(binary + " a decimal es: " + decimal);
+                            System.out.println("Bits: " + binary.length());
+                        } else
+                            System.out.println("Solo debes introducir 0 y 1");
+
+                    } catch(Exception e) {
                         System.out.println("Solo debes introducir 0 y 1");
-
+                    }
                     waitKey();
                     break;
 
@@ -144,6 +157,8 @@ public class conversorBinario {
         System.out.println("\n");
         
     }
+
+    
     // Hace pausa y espera un ENTER desplegando un texto
     @SuppressWarnings("resource")
     public static void waitKey() {
