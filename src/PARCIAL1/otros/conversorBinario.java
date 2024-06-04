@@ -1,3 +1,5 @@
+package PARCIAL1.otros;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class conversorBinario {
@@ -169,7 +171,19 @@ public class conversorBinario {
 
     // Limpiar pantalla
     public static void clear() {
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+        // System.out.println("\033[H\033[2J");
+        // System.out.flush();
+        try {
+            if (System.getProperty("os.name").startsWith("Windows")) {
+                // Ejecutar el comando "cls" usando ProcessBuilder
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                // Alternativa para sistemas basados en Unix (Linux, macOS)
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (IOException | InterruptedException ex) {
+            ex.printStackTrace();
+        }
     }
 }

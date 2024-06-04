@@ -1,3 +1,4 @@
+package PARCIAL1.otros;
 import java.util.Random;
 import java.util.Scanner;
 

@@ -1,3 +1,4 @@
+package PARCIAL1.clases;
 import java.util.Scanner;
 
 public class arreglo2 {
@@ -29,7 +30,7 @@ public class arreglo2 {
             if (num < min)
                 min = num;
         }
-        input.close();
+        //input.close();
 
         prom /= 10;
 

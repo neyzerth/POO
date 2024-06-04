@@ -1,3 +1,4 @@
+package PARCIAL1.clases;
 import java.util.Scanner;
 
 public class sueldos2 {
@@ -47,7 +48,7 @@ public class sueldos2 {
 
                 waitKey(txtWait);
             
-            } else if(opt == 3) {//SUPERVISOR
+            } else if(opt == 3) {   //SUPERVISOR
                 salary = 4500;
                 realSalary = salary*0.9;
 

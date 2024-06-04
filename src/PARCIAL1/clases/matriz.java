@@ -1,3 +1,4 @@
+package PARCIAL1.clases;
 import java.util.Random;
 
 public class matriz {
